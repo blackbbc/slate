@@ -49,10 +49,19 @@ search: true
 
 角色     | 权限  | 查看曲谱 | 收藏曲谱 | 上传曲谱 | 修改曲谱 | 审核曲谱 |
 -------- | ----- | :------: | :------: | :------: | :------: | :------: |
-游客     | 10    |     ✓    |          |          |          |          |
-注册用户 | 20    |     ✓    |     ✓    |          |          |          |
-高级用户 | 30    |     ✓    |     ✓    |    ✓     |    ✓     |          |
-管理员   | 40    |     ✓    |     ✓    |    ✓     |    ✓     |    ✓     |
+游客     | 0    |     ✓    |          |          |          |          |
+注册用户 | 10    |     ✓    |     ✓    |          |          |          |
+高级用户 | 20    |     ✓    |     ✓    |    ✓     |    ✓     |          |
+管理员   | 30    |     ✓    |     ✓    |    ✓     |    ✓     |    ✓     |
+
+# Status
+
+曲谱状态
+
+状态   | 取值 |
+------ | :--: |
+未发布 |  0   |
+已发布 |  1   |
 
 
 # User Module
@@ -239,7 +248,7 @@ size | 每页数量 |
 
 ```json
 {
-  "role": 30
+  "role": 20
 }
 ```
 
@@ -253,7 +262,7 @@ size | 每页数量 |
   },
     "email": "123456@qq.com",
     "passwordHash": "pbkdf2:sha256:50000$2igfGrPk$b0b92bf7363e1a12a70d08701ea52ad5c10ffb1552e2d1c68e1c76400790f0e7",
-    "role": 30,
+    "role": 20,
     "username": "foo"
 }
 ```
@@ -273,7 +282,7 @@ username | 用户名 |
 参数     | 类型   | 可选 | 描述                     |
 -------- | ------ | ---- | ------------------------ |
 password | string |  ✓   | 新密码                   |
-role     | int    |  ✓   | 角色权限，取值20、30、40 |
+role     | int    |  ✓   | 角色权限，取值10、20、30 |
 
 
 # Music Module
@@ -298,7 +307,7 @@ role     | int    |  ✓   | 角色权限，取值20、30、40 |
 
 `POST /music`
 
-### Query Parameters
+### Payload
 
 参数       | 类型     | 可选 | 描述     |
 ---------- | -------- | :--: | -------- |
@@ -310,7 +319,38 @@ tags       | [string] |  ✓   | 标签     |
 content    | string   |      | 曲谱内容 |
 references | [object] |  ✓   | 相关链接，格式为`{"name": string, "url": string}` |
 
-## Update Music
+## Modify Music
+
+更新曲谱，成功时返回曲谱信息
+
+> 示例请求值
+
+```json
+{}
+```
+
+> 示例返回值
+
+```json
+{}
+```
+
+### Http Request
+
+`PATCH /music/<id>`
+
+### Payload
+
+参数       | 类型     | 可选 | 描述     |
+---------- | -------- | :--: | -------- |
+title      | string   |  ✓   | 歌曲名称 |
+alias      | [string] |  ✓   | 别名     |
+author     | string   |  ✓   | 歌曲作者 |
+album      | string   |  ✓   | 专辑     |
+tags       | [string] |  ✓   | 标签     |
+content    | string   |  ✓   | 曲谱内容 |
+references | [object] |  ✓   | 相关链接，格式为`{"name": string, "url": string}` |
+status     | int      |  ✓   | 状态，取值`0`、`1` |
 
 ## Get a Piece of Music
 
