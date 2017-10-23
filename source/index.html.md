@@ -14,11 +14,11 @@ includes:
 search: true
 ---
 
-# 介绍
+# Introduction
 
 自由神社后端API文档，所有的请求使用`JSON`格式进行请求
 
-# 返回值
+# Response
 
 当请求到资源时，HTTP状态码为2XX，否则为4XX
 
@@ -34,12 +34,21 @@ search: true
 }
 ```
 
-# 角色权限
+# Role
+
+角色权限
+
+角色     | 权限  | 查看曲谱 | 收藏曲谱 | 上传曲谱 | 修改曲谱 | 审核曲谱 |
+-------- | ----- | :------: | :------: | :------: | :------: | :------: |
+游客     | 10    |     ✓    |          |          |          |          |
+注册用户 | 20    |     ✓    |     ✓    |          |          |          |
+高级用户 | 30    |     ✓    |     ✓    |    ✓     |    ✓     |          |
+管理员   | 40    |     ✓    |     ✓    |    ✓     |    ✓     |    ✓     |
 
 
-# 用户模块
+# User Module
 
-## 注册
+## Register
 
 注册接口，成功时返回用户信息
 
@@ -73,17 +82,17 @@ search: true
 
 `POST http://localhost:5000/api/register`
 
-### 请求参数
+### Query Parameters
 
-参数      | 类型   | 说明
---------- | ------ | -------
-username  | string | 用户名
-email     | string | 邮箱
-password  | string | 密码
-password2 | string | 重复密码
+参数      | 类型   | 说明     |
+--------- | ------ | -------- |
+username  | string | 用户名   |
+email     | string | 邮箱     |
+password  | string | 密码     |
+password2 | string | 重复密码 |
 
 
-## 登录
+## Login
 
 登录接口，成功时返回用户信息
 
@@ -116,15 +125,17 @@ password2 | string | 重复密码
 
 `POST http://localhost:5000/api/login`
 
-### 请求参数
+### Query Parameters
 
-参数      | 类型   | 描述
---------- | -----  | ------
-username  | string | 用户名
-password  | string | 密码
-remember  | bool   | 是否记住
+参数      | 类型   | 描述     |
+--------- | -----  | -------- |
+username  | string | 用户名   |
+password  | string | 密码     |
+remember  | bool   | 是否记住 |
 
-## 注销
+## Logout
+
+注销
 
 > 示例返回值
 
@@ -137,20 +148,20 @@ remember  | bool   | 是否记住
 `GET http://localhost:5000/api/logout`
 
 
-# 曲谱模块
+# Music Module
 
-## 创建曲谱
+## Create Music
 
-## 替换一个曲谱
+## Replace Music
 
-## 更新一个曲谱
+## Update Music
 
-## 获取一个曲谱
+## Get a Piece of Music
 
-## 获取多个曲谱
+## Get multiple music
 
-# 搜索模块
+# Search Module
 
-## 获取搜索候选项
+## Get search suggestion
 
-## 搜索曲谱
+## Search music
