@@ -246,7 +246,13 @@
                     <a href="#get-multiple-users" class="toc-h2 toc-link" data-title="User Module">Get Multiple Users</a>
                   </li>
                   <li>
-                    <a href="#update-user" class="toc-h2 toc-link" data-title="User Module">Update User</a>
+                    <a href="#change-password" class="toc-h2 toc-link" data-title="User Module">Change Password</a>
+                  </li>
+                  <li>
+                    <a href="#reset-password" class="toc-h2 toc-link" data-title="User Module">Reset Password</a>
+                  </li>
+                  <li>
+                    <a href="#modify-user" class="toc-h2 toc-link" data-title="User Module">Modify User</a>
                   </li>
               </ul>
           </li>
@@ -275,6 +281,17 @@
                   </li>
                   <li>
                     <a href="#search-music" class="toc-h2 toc-link" data-title="Search Module">Search Music</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#donate-module" class="toc-h1 toc-link" data-title="Donate Module">Donate Module</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-donate-record" class="toc-h2 toc-link" data-title="Donate Module">Create Donate Record</a>
+                  </li>
+                  <li>
+                    <a href="#get-multiple-donate-records" class="toc-h2 toc-link" data-title="Donate Module">Get Multiple Donate Records</a>
                   </li>
               </ul>
           </li>
@@ -383,7 +400,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
 <p><code>POST /api/register</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='payload'>Payload</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -421,7 +438,7 @@
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"remember"</span><span class="p">:</span><span class="w"> </span><span class="err">True</span><span class="w">
+  </span><span class="s2">"remember"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -438,7 +455,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST /api/login</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='payload-2'>Payload</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -507,8 +524,113 @@
 </tbody></table>
 <h2 id='get-multiple-users'>Get Multiple Users</h2>
 <p>获取多个用户信息</p>
-<h2 id='update-user'>Update User</h2>
-<p>更新一个用户信息</p>
+
+<blockquote>
+<p>示例请求值</p>
+</blockquote>
+<pre class="highlight plaintext"><code>/api/users?page=1&amp;size=30
+</code></pre>
+<blockquote>
+<p>示例返回值</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"$oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59ecc6efe549a24e4947b42f"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456@qq.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"passwordHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pbkdf2:sha256:50000$2igfGrPk$b0b92bf7363e1a12a70d08701ea52ad5c10ffb1552e2d1c68e1c76400790f0e7"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-5'>Http Request</h3>
+<p><code>GET /api/users</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>页标</td>
+</tr>
+<tr>
+<td>size</td>
+<td>每页数量</td>
+</tr>
+</tbody></table>
+<h2 id='change-password'>Change Password</h2>
+<p>修改密码</p>
+
+<blockquote>
+<p>示例请求值</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"oldPassword"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"newPassword"</span><span class="p">:</span><span class="w"> </span><span class="s2">"barbar"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"newPassword2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"barbar"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>示例返回值</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
+</span></code></pre><h3 id='http-request-6'>Http Request</h3>
+<p><code>POST /api/users/change_password</code></p>
+<h3 id='payload-3'>Payload</h3>
+<table><thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>oldPassword</td>
+<td>string</td>
+<td>旧密码</td>
+</tr>
+<tr>
+<td>newPassword</td>
+<td>string</td>
+<td>新密码</td>
+</tr>
+<tr>
+<td>newPassword2</td>
+<td>string</td>
+<td>重复新密码</td>
+</tr>
+</tbody></table>
+<h2 id='reset-password'>Reset Password</h2>
+<p>重置密码</p>
+
+<blockquote>
+<p>示例请求值</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span></code></pre>
+<blockquote>
+<p>示例返回值</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span></code></pre><h2 id='modify-user'>Modify User</h2>
+<p>修改用户信息，限<code>Admin</code>用户使用</p>
+
+<blockquote>
+<p>示例请求值</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span></code></pre>
+<blockquote>
+<p>示例返回值</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span></code></pre><h3 id='http-request-7'>Http Request</h3>
+<p><code>PUT /api/users/&lt;username&gt;</code></p>
 <h1 id='music-module'>Music Module</h1><h2 id='create-music'>Create Music</h2>
 <p>创建曲谱，成功时返回曲谱信息</p>
 
@@ -521,9 +643,9 @@
 <p>示例返回值</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
-</span></code></pre><h3 id='http-request-5'>Http Request</h3>
+</span></code></pre><h3 id='http-request-8'>Http Request</h3>
 <p><code>POST /music</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -587,7 +709,7 @@
 <p>示例返回值</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
-</span></code></pre><h3 id='http-request-6'>Http Request</h3>
+</span></code></pre><h3 id='http-request-9'>Http Request</h3>
 <p><code>GET /music/&lt;id&gt;</code></p>
 <h3 id='url-parameters-2'>Url Parameters</h3>
 <table><thead>
@@ -613,9 +735,9 @@
 <p>示例返回值</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
-</span></code></pre><h3 id='http-request-7'>Http Request</h3>
+</span></code></pre><h3 id='http-request-10'>Http Request</h3>
 <p><code>GET /music</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -667,9 +789,9 @@
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;em class=</span><span class="se">\"</span><span class="s2">suggest_high_light</span><span class="se">\"</span><span class="s2">&gt;极&lt;/em&gt;&lt;em class=</span><span class="se">\"</span><span class="s2">suggest_high_light</span><span class="se">\"</span><span class="s2">&gt;乐&lt;/em&gt;净土舞蹈教程"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"极乐净土舞蹈教程"</span><span class="w">
 </span><span class="p">}]</span><span class="w">
-</span></code></pre><h3 id='http-request-8'>Http Request</h3>
+</span></code></pre><h3 id='http-request-11'>Http Request</h3>
 <p><code>GET /suggest</code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
+<h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -693,9 +815,9 @@
 <p>示例返回值</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
-</span></code></pre><h3 id='http-request-9'>Http Request</h3>
+</span></code></pre><h3 id='http-request-12'>Http Request</h3>
 <p><code>GET /search</code></p>
-<h3 id='query-parameters-6'>Query Parameters</h3>
+<h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -729,6 +851,10 @@
 <td>每页数量</td>
 </tr>
 </tbody></table>
+<h1 id='donate-module'>Donate Module</h1><h2 id='create-donate-record'>Create Donate Record</h2>
+<p>新增捐赠记录</p>
+<h2 id='get-multiple-donate-records'>Get Multiple Donate Records</h2>
+<p>获取多条捐赠记录</p>
 <h1 id='errors'>Errors</h1>
 <p>自由神社后端使用以下错误码</p>
 
