@@ -224,7 +224,7 @@ username | 用户名 |
 ### Query Parameters
 参数 | 描述     |
 ---- | -------- |
-page | 页标     |
+page | 页码     |
 size | 每页数量 |
 
 ## Modify User
@@ -362,7 +362,7 @@ id   | 曲谱的id |
 
 参数  | 可选 | 默认值 | 描述     |
 ----- | :--: | :----: | -------- |
-page  |  ✓   |   1    | 页标     |
+page  |  ✓   |   1    | 页码     |
 size  |  ✓   |   10   | 每页数量 |
 sort  |  ✓   |   date | 排序依据, `date`按发布时间, `views`按查看数 |
 order |  ✓   |   desc | 排序规则, `asc`升序, `desc`降序 |
@@ -428,15 +428,77 @@ term | 推荐关键词 |
 ---- | :--: | :----: | ------   |
 q    |  ✓   |  null  | 关键词, `q`和`tag`至少有一个不为空 |
 tag  |  ✓   |  null  | 标签, `q`和`tag`至少有一个不为空   |
-page |  ✓   |  1     | 页标     |
+page |  ✓   |  1     | 页码     |
 size |  ✓   |  10    | 每页数量 |
 
 # Donate Module
 
 ## Create Donate Record
 
-新增捐赠记录
+新增一条捐赠记录
+
+> 示例请求值
+
+```json
+{
+  "username": "foo",
+  "donateDt": 1508747607,
+  "amount": 100.0
+}
+```
+
+> 示例返回值
+
+```json
+{}
+```
+
+### Http Request
+
+`POST /api/donations`
+
+### Payload
+
+参数     | 类型   | 描述   |
+-------- | ------ | ------ |
+username | string | 用户名 |
+donateDt | long   | 捐赠时间(Unix时间戳，精确到秒) |
+amount   | float  | 数量   |
 
 ## Get Multiple Donate Records
 
 获取多条捐赠记录
+
+> 示例请求值
+
+```
+/api/donations?page=1&&size=10
+```
+
+> 示例返回值
+
+```json
+{
+  "total": 2,
+  "data": [{
+    "username": "foo",
+    "donateDt": 1508747607,
+    "amount": 100.0
+  }, {
+    "username": "foo",
+    "donateDt": 1508747307,
+    "amount": 100.0
+  }]
+}
+```
+
+### Http Request
+
+`GET /api/donations`
+
+### Payload
+
+参数 | 可选 | 默认值 | 描述     |
+---- | :--: | ------ | -------- |
+page |  ✓   |  1     | 页码     |
+size |  ✓   |  10    | 每页数量 |
