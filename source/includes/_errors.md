@@ -1,20 +1,14 @@
-# Errors
+# 错误
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
-
-The Kittn API uses the following error codes:
+自由神社后端使用以下错误码
 
 
-Error Code | Meaning
+错误码 | 含义
 ---------- | -------
-400 | Bad Request -- Your request sucks.
-401 | Unauthorized -- Your API key is wrong.
-403 | Forbidden -- The kitten requested is hidden for administrators only.
-404 | Not Found -- The specified kitten could not be found.
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method.
-406 | Not Acceptable -- You requested a format that isn't json.
-410 | Gone -- The kitten requested has been removed from our servers.
-418 | I'm a teapot.
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.
+400 | 错误请求 -- 一般用于参数验证
+401 | 未登录
+403 | 权限错误 -- 没有权限使用API
+404 | 未找到 -- 所请求的资源不存在
+409 | 资源重复 -- 如用户名或邮箱已注册时会返回该错误码
+415 | 不支持的媒体类型 -- 如只允许上传PNG却上传了JPEG
+500 | 内部错误 -- 服务器挂了

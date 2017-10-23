@@ -2,6 +2,7 @@
 title: 神社API文档
 
 language_tabs: # must be one of https://git.io/vQNgJ
+  - json
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -14,9 +15,11 @@ search: true
 ---
 
 # 介绍
+
 自由神社后端API文档，所有的请求使用`JSON`格式进行请求
 
-# 返回值约定
+# 返回值
+
 当请求到资源时，HTTP状态码为2XX，否则为4XX
 
 当HTTP状态码为2XX时，所请求的资源在即在json串里
@@ -111,7 +114,7 @@ password2 | string | 重复密码
 
 ### HTTP Request
 
-`GET http://localhost:5000/api/login`
+`POST http://localhost:5000/api/login`
 
 ### 请求参数
 
@@ -135,3 +138,19 @@ remember  | bool   | 是否记住
 
 
 # 曲谱模块
+
+## 创建曲谱
+
+## 替换一个曲谱
+
+## 更新一个曲谱
+
+## 获取一个曲谱
+
+## 获取多个曲谱
+
+# 搜索模块
+
+## 获取搜索候选项
+
+## 搜索曲谱
