@@ -82,7 +82,7 @@ search: true
 
 `POST /api/register`
 
-### Query Parameters
+### Payload
 
 参数      | 类型   | 说明     |
 --------- | ------ | -------- |
@@ -102,7 +102,7 @@ password2 | string | 重复密码 |
 {
   "username": "foo",
   "password": "bar",
-  "remember": True
+  "remember": true
 }
 ```
 
@@ -125,7 +125,7 @@ password2 | string | 重复密码 |
 
 `POST /api/login`
 
-### Query Parameters
+### Payload
 
 参数      | 类型   | 描述     |
 --------- | -----  | -------- |
@@ -185,9 +185,107 @@ username | 用户名 |
 
 获取多个用户信息
 
-## Update User
+> 示例请求值
 
-更新一个用户信息
+```
+/api/users?page=1&size=30
+```
+
+> 示例返回值
+
+```json
+{
+  "total": 1,
+  "data": [{
+    "_id": {
+      "$oid": "59ecc6efe549a24e4947b42f"
+    },
+      "email": "123456@qq.com",
+      "passwordHash": "pbkdf2:sha256:50000$2igfGrPk$b0b92bf7363e1a12a70d08701ea52ad5c10ffb1552e2d1c68e1c76400790f0e7",
+      "role": 20,
+      "username": "foo"
+  }]
+}
+```
+
+### Http Request
+
+`GET /api/users`
+
+### Query Parameters
+参数 | 描述     |
+---- | -------- |
+page | 页标     |
+size | 每页数量 |
+
+## Change Password
+
+修改密码
+
+> 示例请求值
+
+```json
+{
+  "oldPassword": "bar",
+  "newPassword": "barbar",
+  "newPassword2": "barbar"
+}
+```
+
+> 示例返回值
+
+```json
+{}
+```
+
+### Http Request
+
+`POST /api/users/change_password`
+
+### Payload
+
+参数         | 类型   | 描述       |
+------------ | ------ | ---------- |
+oldPassword  | string | 旧密码     |
+newPassword  | string | 新密码     |
+newPassword2 | string | 重复新密码 |
+
+
+## Reset Password
+
+重置密码
+
+> 示例请求值
+
+```json
+
+```
+
+> 示例返回值
+
+```json
+
+```
+
+## Modify User
+
+修改用户信息，限`Admin`用户使用
+
+> 示例请求值
+
+```json
+
+```
+
+> 示例返回值
+
+```json
+
+```
+
+### Http Request
+
+`PUT /api/users/<username>`
 
 
 # Music Module
@@ -344,3 +442,13 @@ q    |  ✓   |  null  | 关键词, `q`和`tag`至少有一个不为空 |
 tag  |  ✓   |  null  | 标签, `q`和`tag`至少有一个不为空   |
 page |  ✓   |  1     | 页标     |
 size |  ✓   |  10    | 每页数量 |
+
+# Donate Module
+
+## Create Donate Record
+
+新增捐赠记录
+
+## Get Multiple Donate Records
+
+获取多条捐赠记录
