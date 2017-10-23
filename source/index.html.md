@@ -407,6 +407,26 @@ size  |  ✓   |   10   | 每页数量 |
 sort  |  ✓   |   date | 排序依据, `date`按发布时间, `views`按查看数 |
 order |  ✓   |   desc | 排序规则, `asc`升序, `desc`降序 |
 
+## Star
+
+收藏曲谱
+
+> 示例请求值
+
+```json
+
+```
+
+> 示例返回值
+
+```json
+
+```
+
+### Http Request
+
+### Payload
+
 # Search Module
 
 ## Get Search Suggestion
