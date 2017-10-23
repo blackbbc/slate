@@ -18,11 +18,20 @@ search: true
 
 自由神社后端API文档，所有的请求使用`JSON`格式进行请求
 
+# Request
+
+所有的请求请正确使用`GET`、`POST`、`PUT`、`DELETE`方法，否则会返回`405`错误(Method Not Allowd)
+
 # Response
 
 当请求到资源时，HTTP状态码为2XX，否则为4XX
 
 当HTTP状态码为2XX时，所请求的资源在即在json串里
+
+成功的HTTP响应使用如下状态码：
+
+  - `200`: `GET`、`PUT`、`PATCH`请求成功
+  - `201`: `POST`创建成功
 
 当HTTP状态码为4XX时，返回的json串只有一个`message`的键，包含了错误信息
 
@@ -218,74 +227,53 @@ username | 用户名 |
 page | 页标     |
 size | 每页数量 |
 
-## Change Password
-
-修改密码
-
-> 示例请求值
-
-```json
-{
-  "oldPassword": "bar",
-  "newPassword": "barbar",
-  "newPassword2": "barbar"
-}
-```
-
-> 示例返回值
-
-```json
-{}
-```
-
-### Http Request
-
-`POST /api/users/change_password`
-
-### Payload
-
-参数         | 类型   | 描述       |
------------- | ------ | ---------- |
-oldPassword  | string | 旧密码     |
-newPassword  | string | 新密码     |
-newPassword2 | string | 重复新密码 |
-
-
-## Reset Password
-
-重置密码
-
-> 示例请求值
-
-```json
-
-```
-
-> 示例返回值
-
-```json
-
-```
-
 ## Modify User
 
 修改用户信息，限`Admin`用户使用
 
 > 示例请求值
 
-```json
+```
+/api/users/foo
+```
 
+```json
+{
+  "role": 30
+}
 ```
 
 > 示例返回值
 
 ```json
 
+{
+  "_id": {
+    "$oid": "59ecc6efe549a24e4947b42f"
+  },
+    "email": "123456@qq.com",
+    "passwordHash": "pbkdf2:sha256:50000$2igfGrPk$b0b92bf7363e1a12a70d08701ea52ad5c10ffb1552e2d1c68e1c76400790f0e7",
+    "role": 30,
+    "username": "foo"
+}
 ```
 
 ### Http Request
 
-`PUT /api/users/<username>`
+`PATCH /api/users/<username>`
+
+### Url Parameters
+
+参数     | 描述   |
+-------- | ------ |
+username | 用户名 |
+
+### Payload
+
+参数     | 类型   | 可选 | 描述                     |
+-------- | ------ | ---- | ------------------------ |
+password | string |  ✓   | 新密码                   |
+role     | int    |  ✓   | 角色权限，取值20、30、40 |
 
 
 # Music Module
