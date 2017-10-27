@@ -89,7 +89,6 @@ search: true
     "$oid": "59ecc6efe549a24e4947b42f"
   },
     "email": "123456@qq.com",
-    "passwordHash": "pbkdf2:sha256:50000$2igfGrPk$b0b92bf7363e1a12a70d08701ea52ad5c10ffb1552e2d1c68e1c76400790f0e7",
     "role": 20,
     "username": "foo"
 }
@@ -133,7 +132,6 @@ password2 | string | 重复密码 |
     "$oid": "59ecc6efe549a24e4947b42f"
   },
     "email": "123456@qq.com",
-    "passwordHash": "pbkdf2:sha256:50000$2igfGrPk$b0b92bf7363e1a12a70d08701ea52ad5c10ffb1552e2d1c68e1c76400790f0e7",
     "role": 20,
     "username": "foo"
 }
@@ -183,7 +181,6 @@ remember  | bool   | 是否记住 |
     "$oid": "59ecc6efe549a24e4947b42f"
   },
     "email": "123456@qq.com",
-    "passwordHash": "pbkdf2:sha256:50000$2igfGrPk$b0b92bf7363e1a12a70d08701ea52ad5c10ffb1552e2d1c68e1c76400790f0e7",
     "role": 20,
     "username": "foo"
 }
@@ -219,7 +216,6 @@ username | 用户名 |
       "$oid": "59ecc6efe549a24e4947b42f"
     },
       "email": "123456@qq.com",
-      "passwordHash": "pbkdf2:sha256:50000$2igfGrPk$b0b92bf7363e1a12a70d08701ea52ad5c10ffb1552e2d1c68e1c76400790f0e7",
       "role": 20,
       "username": "foo"
   }]
@@ -261,7 +257,6 @@ size | 每页数量 |
     "$oid": "59ecc6efe549a24e4947b42f"
   },
     "email": "123456@qq.com",
-    "passwordHash": "pbkdf2:sha256:50000$2igfGrPk$b0b92bf7363e1a12a70d08701ea52ad5c10ffb1552e2d1c68e1c76400790f0e7",
     "role": 20,
     "username": "foo"
 }
