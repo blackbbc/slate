@@ -279,6 +279,33 @@ username | 用户名 |
 password | string |  ✓   | 新密码                   |
 role     | int    |  ✓   | 角色权限，取值10、20、30 |
 
+## Status
+
+获取当前用户信息，若用户已登录，返回已登录的用户信息，否则返回`401`错误
+
+> 示例请求值
+
+```
+/api/status
+```
+
+> 示例返回值
+
+```json
+{
+  "_id": {
+    "$oid": "59ecc6efe549a24e4947b42f"
+  },
+    "email": "123456@qq.com",
+    "role": 20,
+    "username": "foo"
+}
+```
+
+### Http Request
+
+`GET /api/status`
+
 
 # Music Module
 
