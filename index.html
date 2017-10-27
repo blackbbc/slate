@@ -254,6 +254,9 @@
                   <li>
                     <a href="#modify-user" class="toc-h2 toc-link" data-title="User Module">Modify User</a>
                   </li>
+                  <li>
+                    <a href="#status-2" class="toc-h2 toc-link" data-title="User Module">Status</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -648,6 +651,27 @@
 <td>角色权限，取值10、20、30</td>
 </tr>
 </tbody></table>
+<h2 id='status-2'>Status</h2>
+<p>获取当前用户信息，若用户已登录，返回已登录的用户信息，否则返回<code>401</code>错误</p>
+
+<blockquote>
+<p>示例请求值</p>
+</blockquote>
+<pre class="highlight plaintext"><code>/api/status
+</code></pre>
+<blockquote>
+<p>示例返回值</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"$oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59ecc6efe549a24e4947b42f"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456@qq.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-7'>Http Request</h3>
+<p><code>GET /api/status</code></p>
 <h1 id='music-module'>Music Module</h1><h2 id='create-music'>Create Music</h2>
 <p>创建曲谱，成功时返回曲谱信息</p>
 
@@ -660,7 +684,7 @@
 <p>示例返回值</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
-</span></code></pre><h3 id='http-request-7'>Http Request</h3>
+</span></code></pre><h3 id='http-request-8'>Http Request</h3>
 <p><code>POST /music</code></p>
 <h3 id='payload-4'>Payload</h3>
 <table><thead>
@@ -726,7 +750,7 @@
 <p>示例返回值</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
-</span></code></pre><h3 id='http-request-8'>Http Request</h3>
+</span></code></pre><h3 id='http-request-9'>Http Request</h3>
 <p><code>PATCH /music/&lt;id&gt;</code></p>
 <h3 id='payload-5'>Payload</h3>
 <table><thead>
@@ -798,7 +822,7 @@
 <p>示例返回值</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
-</span></code></pre><h3 id='http-request-9'>Http Request</h3>
+</span></code></pre><h3 id='http-request-10'>Http Request</h3>
 <p><code>GET /music/&lt;id&gt;</code></p>
 <h3 id='url-parameters-3'>Url Parameters</h3>
 <table><thead>
@@ -824,7 +848,7 @@
 <p>示例返回值</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
-</span></code></pre><h3 id='http-request-10'>Http Request</h3>
+</span></code></pre><h3 id='http-request-11'>Http Request</h3>
 <p><code>GET /music</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
@@ -872,7 +896,7 @@
 <p>示例返回值</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">
-</span></code></pre><h3 id='http-request-11'>Http Request</h3><h3 id='payload-6'>Payload</h3><h1 id='search-module'>Search Module</h1><h2 id='get-search-suggestion'>Get Search Suggestion</h2>
+</span></code></pre><h3 id='http-request-12'>Http Request</h3><h3 id='payload-6'>Payload</h3><h1 id='search-module'>Search Module</h1><h2 id='get-search-suggestion'>Get Search Suggestion</h2>
 <p>获取搜索推荐</p>
 
 <blockquote>
@@ -890,7 +914,7 @@
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;em class=</span><span class="se">\"</span><span class="s2">suggest_high_light</span><span class="se">\"</span><span class="s2">&gt;极&lt;/em&gt;&lt;em class=</span><span class="se">\"</span><span class="s2">suggest_high_light</span><span class="se">\"</span><span class="s2">&gt;乐&lt;/em&gt;净土舞蹈教程"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"极乐净土舞蹈教程"</span><span class="w">
 </span><span class="p">}]</span><span class="w">
-</span></code></pre><h3 id='http-request-12'>Http Request</h3>
+</span></code></pre><h3 id='http-request-13'>Http Request</h3>
 <p><code>GET /suggest</code></p>
 <h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
@@ -916,7 +940,7 @@
 <p>示例返回值</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
-</span></code></pre><h3 id='http-request-13'>Http Request</h3>
+</span></code></pre><h3 id='http-request-14'>Http Request</h3>
 <p><code>GET /search</code></p>
 <h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
@@ -968,7 +992,7 @@
 <p>示例返回值</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
-</span></code></pre><h3 id='http-request-14'>Http Request</h3>
+</span></code></pre><h3 id='http-request-15'>Http Request</h3>
 <p><code>POST /api/donations</code></p>
 <h3 id='payload-7'>Payload</h3>
 <table><thead>
@@ -1017,7 +1041,7 @@
     </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="w">
   </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-15'>Http Request</h3>
+</span></code></pre><h3 id='http-request-16'>Http Request</h3>
 <p><code>GET /api/donations</code></p>
 <h3 id='payload-8'>Payload</h3>
 <table><thead>
