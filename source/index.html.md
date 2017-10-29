@@ -464,13 +464,7 @@ order |  ✓   |   desc | 排序规则, `asc`升序, `desc`降序 |
 > 示例返回值
 
 ```json
-[{
-  "name": "<em class=\"suggest_high_light\">极</em><em class=\"suggest_high_light\">乐</em>净土",
-  "value": "极乐净土"
-},{
-  "name": "<em class=\"suggest_high_light\">极</em><em class=\"suggest_high_light\">乐</em>净土舞蹈教程",
-  "value": "极乐净土舞蹈教程"
-}]
+["极乐净土", "极乐净土舞蹈教程"]
 ```
 
 ### Http Request
@@ -508,8 +502,7 @@ term | 推荐关键词 |
 
 参数 | 可选 | 默认值 | 描述     |
 ---- | :--: | :----: | ------   |
-q    |  ✓   |  null  | 关键词, `q`和`tag`至少有一个不为空 |
-tag  |  ✓   |  null  | 标签, `q`和`tag`至少有一个不为空   |
+q    |      |        | 关键词   |
 page |  ✓   |  1     | 页码     |
 size |  ✓   |  10    | 每页数量 |
 
