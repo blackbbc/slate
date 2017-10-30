@@ -85,12 +85,10 @@ search: true
 
 ```json
 {
-  "_id": {
-    "$oid": "59ecc6efe549a24e4947b42f"
-  },
-    "email": "123456@qq.com",
-    "role": 20,
-    "username": "foo"
+  "id": "59ecc6efe549a24e4947b42f",
+  "email": "123456@qq.com",
+  "role": 20,
+  "username": "foo"
 }
 ```
 
@@ -128,12 +126,10 @@ password2 | string | 重复密码 |
 
 ```json
 {
-  "_id": {
-    "$oid": "59ecc6efe549a24e4947b42f"
-  },
-    "email": "123456@qq.com",
-    "role": 20,
-    "username": "foo"
+  "id": "59ecc6efe549a24e4947b42f",
+  "email": "123456@qq.com",
+  "role": 20,
+  "username": "foo"
 }
 ```
 
@@ -177,12 +173,10 @@ remember  | bool   | 是否记住 |
 
 ```json
 {
-  "_id": {
-    "$oid": "59ecc6efe549a24e4947b42f"
-  },
-    "email": "123456@qq.com",
-    "role": 20,
-    "username": "foo"
+  "id": "59ecc6efe549a24e4947b42f",
+  "email": "123456@qq.com",
+  "role": 20,
+  "username": "foo"
 }
 ```
 
@@ -212,12 +206,10 @@ username | 用户名 |
 {
   "total": 1,
   "data": [{
-    "_id": {
-      "$oid": "59ecc6efe549a24e4947b42f"
-    },
-      "email": "123456@qq.com",
-      "role": 20,
-      "username": "foo"
+    "id": "59ecc6efe549a24e4947b42f",
+    "email": "123456@qq.com",
+    "role": 20,
+    "username": "foo"
   }]
 }
 ```
@@ -253,12 +245,10 @@ size | 每页数量 |
 ```json
 
 {
-  "_id": {
-    "$oid": "59ecc6efe549a24e4947b42f"
-  },
-    "email": "123456@qq.com",
-    "role": 20,
-    "username": "foo"
+  "id": "59ecc6efe549a24e4947b42f",
+  "email": "123456@qq.com",
+  "role": 20,
+  "username": "foo"
 }
 ```
 
@@ -293,12 +283,10 @@ role     | int    |  ✓   | 角色权限，取值10、20、30 |
 
 ```json
 {
-  "_id": {
-    "$oid": "59ecc6efe549a24e4947b42f"
-  },
-    "email": "123456@qq.com",
-    "role": 20,
-    "username": "foo"
+  "id": "59ecc6efe549a24e4947b42f",
+  "email": "123456@qq.com",
+  "role": 20,
+  "username": "foo"
 }
 ```
 
@@ -316,13 +304,56 @@ role     | int    |  ✓   | 角色权限，取值10、20、30 |
 > 示例请求值
 
 ```json
-{}
+{
+  "title": "旅の途中",
+  "author": "小峰公子",
+  "composer": "吉良知彦",
+  "singer": "清浦夏实",
+  "album": "旅の途中",
+  "tags": [
+    "狼与香辛料",
+    "狼と香辛料"
+  ],
+  "content": "(6)(#6)1(#6)1(6)(5)(4)",
+  "cover": "http://7xs2gj.com1.z0.glb.clouddn.com/ldtz.jpg-t",
+  "references": [
+    {
+      "name": "FREEDOM54",
+      "url": "http://tieba.baidu.com/home/main?un=FREEDOM54&ie=utf-8&fr=pb"
+    }
+  ]
+}
 ```
 
 > 示例返回值
 
 ```json
-{}
+{
+  "id": "59f67fc3e549a21d1e8d861c",
+  "title": "旅の途中",
+  "alias": [],
+  "album": "旅の途中",
+  "author": "小峰公子",
+  "composer": "吉良知彦",
+  "singer": "清浦夏实",
+  "content": "(6)(#6)1(#6)1(6)(5)(4)",
+  "cover": "http://7xs2gj.com1.z0.glb.clouddn.com/ldtz.jpg-t",
+  "tags": [
+    "狼与香辛料",
+    "狼と香辛料"
+  ],
+  "references": [
+    {
+      "name": "FREEDOM54",
+      "url": "http://tieba.baidu.com/home/main?un=FREEDOM54&ie=utf-8&fr=pb"
+    }
+  ],
+  "createDt": 1509326787,
+  "updateDt": 1509326787,
+  "userId": "59f48847e549a20f73d009e9",
+  "status": 0,
+  "views": 0
+}
 ```
 
 ### Http Request
@@ -335,10 +366,13 @@ role     | int    |  ✓   | 角色权限，取值10、20、30 |
 ---------- | -------- | :--: | -------- |
 title      | string   |      | 歌曲名称 |
 alias      | [string] |  ✓   | 别名     |
-author     | string   |  ✓   | 歌曲作者 |
+author     | string   |  ✓   | 作词     |
+composer   | string   |  ✓   | 作曲     |
+singer     | string   |  ✓   | 歌手     |
 album      | string   |  ✓   | 专辑     |
 tags       | [string] |  ✓   | 标签     |
 content    | string   |      | 曲谱内容 |
+conver     | string   |      | 封面     |
 references | [object] |  ✓   | 相关链接，格式为`{"name": string, "url": string}` |
 
 ## Modify Music
