@@ -47,12 +47,13 @@ search: true
 
 角色权限
 
-角色     | 权限  | 查看曲谱 | 收藏曲谱 | 上传曲谱 | 修改曲谱 | 审核曲谱 |
--------- | ----- | :------: | :------: | :------: | :------: | :------: |
-游客     | 0    |     ✓    |          |          |          |          |
-注册用户 | 10    |     ✓    |     ✓    |          |          |          |
-高级用户 | 20    |     ✓    |     ✓    |    ✓     |    ✓     |          |
-管理员   | 30    |     ✓    |     ✓    |    ✓     |    ✓     |    ✓     |
+角色       | 权限  | 查看曲谱 | 收藏曲谱 | 上传曲谱 | 修改曲谱 | 审核曲谱 |
+---------- | ----- | :------: | :------: | :------: | :------: | :------: |
+游客       | 0     |     ✓    |          |          |          |          |
+未验证用户 | 0     |     ✓    |          |          |          |          |
+注册用户   | 10    |     ✓    |     ✓    |          |          |          |
+高级用户   | 20    |     ✓    |     ✓    |    ✓     |    ✓     |          |
+管理员     | 30    |     ✓    |     ✓    |    ✓     |    ✓     |    ✓     |
 
 # Status
 
@@ -86,9 +87,12 @@ search: true
 ```json
 {
   "id": "59ecc6efe549a24e4947b42f",
+  "bid": 0,
+  "username": "foo",
+  "nickname": "foo",
+  "avatar": "",
   "email": "123456@qq.com",
-  "role": 20,
-  "username": "foo"
+  "role": 0
 }
 ```
 
@@ -105,6 +109,88 @@ username  | string | 用户名   |
 email     | string | 邮箱     |
 password  | string | 密码     |
 password2 | string | 重复密码 |
+
+
+## Verify User
+
+验证用户邮箱
+
+> 示例请求值
+
+```
+/api/verify?code=b7300fcdf45d4848894e046b96bfbcd8
+```
+
+> 示例返回值
+
+```json
+200
+
+{}
+```
+
+```json
+400
+
+{
+  "message": "验证码已失效"
+}
+```
+
+### HTTP Request
+
+`GET /api/verify`
+
+### Url Parameters
+
+参数   | 类型   | 描述   |
+------ | ------ | ------ |
+code   | string | 验证码 |
+
+
+## Send Verify Email
+
+重新发送验证邮件
+
+> 示例请求值
+
+```
+/api/verify/send?email=505968815@qq.com
+```
+
+> 示例返回值
+
+```json
+200
+
+{}
+```
+
+```json
+404
+
+{
+  "message": "用户不存在"
+}
+```
+
+```json
+409
+
+{
+  "message": "用户已验证"
+}
+```
+
+### HTTP Request
+
+`GET /api/verify/send`
+
+### Url Parameters
+
+参数   | 类型   | 描述   |
+------ | ------ | ------ |
+email  | string | 邮箱 |
 
 
 ## Login
@@ -127,9 +213,12 @@ password2 | string | 重复密码 |
 ```json
 {
   "id": "59ecc6efe549a24e4947b42f",
+  "bid": 0,
+  "username": "foo",
+  "nickname": "foo",
+  "avatar": "",
   "email": "123456@qq.com",
-  "role": 20,
-  "username": "foo"
+  "role": 30
 }
 ```
 
@@ -174,9 +263,12 @@ remember  | bool   | 是否记住 |
 ```json
 {
   "id": "59ecc6efe549a24e4947b42f",
+  "bid": 0,
+  "username": "foo",
+  "nickname": "foo",
+  "avatar": "",
   "email": "123456@qq.com",
-  "role": 20,
-  "username": "foo"
+  "role": 30
 }
 ```
 
@@ -207,9 +299,12 @@ username | 用户名 |
   "total": 1,
   "data": [{
     "id": "59ecc6efe549a24e4947b42f",
+    "bid": 0,
+    "username": "foo",
+    "nickname": "foo",
+    "avatar": "",
     "email": "123456@qq.com",
-    "role": 20,
-    "username": "foo"
+    "role": 30
   }]
 }
 ```
@@ -243,12 +338,14 @@ size | 每页数量 |
 > 示例返回值
 
 ```json
-
 {
   "id": "59ecc6efe549a24e4947b42f",
+  "bid": 0,
+  "username": "foo",
+  "nickname": "foo",
+  "avatar": "",
   "email": "123456@qq.com",
-  "role": 20,
-  "username": "foo"
+  "role": 20
 }
 ```
 
@@ -284,9 +381,12 @@ role     | int    |  ✓   | 角色权限，取值10、20、30 |
 ```json
 {
   "id": "59ecc6efe549a24e4947b42f",
+  "bid": 0,
+  "username": "foo",
+  "nickname": "foo",
+  "avatar": "",
   "email": "123456@qq.com",
-  "role": 20,
-  "username": "foo"
+  "role": 20
 }
 ```
 
