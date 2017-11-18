@@ -67,6 +67,14 @@ search: true
 
 # User Module
 
+## Captcha
+
+获取验证码，返回图片（160x60）
+
+### HTTP Request
+
+`GET /api/captcha`
+
 ## Register
 
 注册接口，成功时返回用户信息
@@ -78,7 +86,8 @@ search: true
   "username": "foo",
   "email": "12345678@qq.com",
   "password": "bar",
-  "password2": "bar"
+  "password2": "bar",
+  "captcha": "1234"
 }
 ```
 
@@ -109,6 +118,7 @@ username  | string | 用户名   |
 email     | string | 邮箱     |
 password  | string | 密码     |
 password2 | string | 重复密码 |
+captcha   | string | 验证码   |
 
 
 ## Verify User
