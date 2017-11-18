@@ -237,6 +237,9 @@
             <a href="#user-module" class="toc-h1 toc-link" data-title="User Module">User Module</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#captcha" class="toc-h2 toc-link" data-title="User Module">Captcha</a>
+                  </li>
+                  <li>
                     <a href="#register" class="toc-h2 toc-link" data-title="User Module">Register</a>
                   </li>
                   <li>
@@ -421,7 +424,11 @@
 <td style="text-align: center">1</td>
 </tr>
 </tbody></table>
-<h1 id='user-module'>User Module</h1><h2 id='register'>Register</h2>
+<h1 id='user-module'>User Module</h1><h2 id='captcha'>Captcha</h2>
+<p>获取验证码，返回图片（160x60）</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /api/captcha</code></p>
+<h2 id='register'>Register</h2>
 <p>注册接口，成功时返回用户信息</p>
 
 <blockquote>
@@ -431,7 +438,8 @@
   </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678@qq.com"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"password2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
+  </span><span class="s2">"password2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"captcha"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -446,7 +454,7 @@
   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456@qq.com"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST /api/register</code></p>
 <h3 id='payload'>Payload</h3>
 <table><thead>
@@ -476,6 +484,11 @@
 <td>string</td>
 <td>重复密码</td>
 </tr>
+<tr>
+<td>captcha</td>
+<td>string</td>
+<td>验证码</td>
+</tr>
 </tbody></table>
 <h2 id='verify-user'>Verify User</h2>
 <p>验证用户邮箱</p>
@@ -496,7 +509,7 @@
 </span><span class="p">{</span><span class="w">
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"验证码已失效"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET /api/verify</code></p>
 <h3 id='url-parameters'>Url Parameters</h3>
 <table><thead>
@@ -536,7 +549,7 @@
 </span><span class="p">{</span><span class="w">
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"用户已验证"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET /api/verify/send</code></p>
 <h3 id='url-parameters-2'>Url Parameters</h3>
 <table><thead>
@@ -576,7 +589,7 @@
   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456@qq.com"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
 <p><code>POST /api/login</code></p>
 <h3 id='payload-2'>Payload</h3>
 <table><thead>
@@ -609,7 +622,7 @@
 <p>示例返回值</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
-</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET /api/logout</code></p>
 <h2 id='get-a-specific-user'>Get a Specific User</h2>
 <p>获取一个用户信息</p>
@@ -631,7 +644,7 @@
   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456@qq.com"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-6'>Http Request</h3>
+</span></code></pre><h3 id='http-request-7'>Http Request</h3>
 <p><code>GET /api/users/&lt;username&gt;</code></p>
 <h3 id='url-parameters-3'>Url Parameters</h3>
 <table><thead>
@@ -668,7 +681,7 @@
     </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
   </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-7'>Http Request</h3>
+</span></code></pre><h3 id='http-request-8'>Http Request</h3>
 <p><code>GET /api/users</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -709,7 +722,7 @@
   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456@qq.com"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-8'>Http Request</h3>
+</span></code></pre><h3 id='http-request-9'>Http Request</h3>
 <p><code>PATCH /api/users/&lt;username&gt;</code></p>
 <h3 id='url-parameters-4'>Url Parameters</h3>
 <table><thead>
@@ -765,7 +778,7 @@
   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456@qq.com"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-9'>Http Request</h3>
+</span></code></pre><h3 id='http-request-10'>Http Request</h3>
 <p><code>GET /api/status</code></p>
 <h1 id='music-module'>Music Module</h1><h2 id='create-music'>Create Music</h2>
 <p>创建曲谱，成功时返回曲谱信息</p>
@@ -822,7 +835,7 @@
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-10'>Http Request</h3>
+</span></code></pre><h3 id='http-request-11'>Http Request</h3>
 <p><code>POST /music</code></p>
 <h3 id='payload-4'>Payload</h3>
 <table><thead>
@@ -934,7 +947,7 @@
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-11'>Http Request</h3>
+</span></code></pre><h3 id='http-request-12'>Http Request</h3>
 <p><code>PATCH /music/&lt;id&gt;</code></p>
 <h3 id='payload-5'>Payload</h3>
 <table><thead>
@@ -1049,7 +1062,7 @@
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"views"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-12'>Http Request</h3>
+</span></code></pre><h3 id='http-request-13'>Http Request</h3>
 <p><code>GET /music/&lt;id&gt;</code></p>
 <h3 id='url-parameters-5'>Url Parameters</h3>
 <table><thead>
@@ -1105,7 +1118,7 @@
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-13'>Http Request</h3>
+</span></code></pre><h3 id='http-request-14'>Http Request</h3>
 <p><code>GET /music</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
@@ -1159,7 +1172,7 @@
 <p>示例返回值</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">
-</span></code></pre><h3 id='http-request-14'>Http Request</h3><h3 id='payload-6'>Payload</h3><h1 id='search-module'>Search Module</h1><h2 id='get-search-suggestion'>Get Search Suggestion</h2>
+</span></code></pre><h3 id='http-request-15'>Http Request</h3><h3 id='payload-6'>Payload</h3><h1 id='search-module'>Search Module</h1><h2 id='get-search-suggestion'>Get Search Suggestion</h2>
 <p>获取搜索推荐</p>
 
 <blockquote>
@@ -1171,7 +1184,7 @@
 <p>示例返回值</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="s2">"极乐净土"</span><span class="p">,</span><span class="w"> </span><span class="s2">"极乐净土舞蹈教程"</span><span class="p">]</span><span class="w">
-</span></code></pre><h3 id='http-request-15'>Http Request</h3>
+</span></code></pre><h3 id='http-request-16'>Http Request</h3>
 <p><code>GET /suggest</code></p>
 <h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
@@ -1227,7 +1240,7 @@
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-16'>Http Request</h3>
+</span></code></pre><h3 id='http-request-17'>Http Request</h3>
 <p><code>GET /search</code></p>
 <h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
@@ -1273,7 +1286,7 @@
 <p>示例返回值</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
-</span></code></pre><h3 id='http-request-17'>Http Request</h3>
+</span></code></pre><h3 id='http-request-18'>Http Request</h3>
 <p><code>POST /api/donations</code></p>
 <h3 id='payload-7'>Payload</h3>
 <table><thead>
@@ -1322,7 +1335,7 @@
     </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="w">
   </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-18'>Http Request</h3>
+</span></code></pre><h3 id='http-request-19'>Http Request</h3>
 <p><code>GET /api/donations</code></p>
 <h3 id='payload-8'>Payload</h3>
 <table><thead>
