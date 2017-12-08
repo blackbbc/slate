@@ -651,7 +651,7 @@ id   | 曲谱的id |
 
 ### Http Request
 
-`GET /music`
+`GET /api/music`
 
 ### Query Parameters
 
@@ -692,7 +692,7 @@ order |  ✓   |   desc | 排序规则, `asc`升序, `desc`降序 |
 > 示例请求值
 
 ```
-/suggest?term=极乐
+/api/suggest?term=极乐
 ```
 
 > 示例返回值
@@ -703,7 +703,7 @@ order |  ✓   |   desc | 排序规则, `asc`升序, `desc`降序 |
 
 ### Http Request
 
-`GET /suggest`
+`GET /api/suggest`
 
 ### Query Parameters
 
@@ -719,7 +719,7 @@ term | 推荐关键词 |
 > 示例请求值
 
 ```
-/api/search?q=旅途
+/api/music/search?q=旅途
 ```
 
 > 示例返回值
@@ -760,7 +760,7 @@ term | 推荐关键词 |
 
 ### Http Request
 
-`GET /search`
+`GET /api/music/search`
 
 ### Query Parameters
 
@@ -769,6 +769,38 @@ term | 推荐关键词 |
 q    |      |        | 关键词   |
 page |  ✓   |  1     | 页码     |
 size |  ✓   |  10    | 每页数量 |
+
+## Search Tags
+
+搜索标签
+
+> 示例请求值
+
+```
+/api/tags/search?q=香辛料
+```
+
+> 示例返回值
+
+```json
+{
+  "total": 2,
+  "date": ["狼与香辛料","狼と香辛料"]
+}
+```
+
+### Http Request
+
+`GET /api/tags/search`
+
+### Query Parameters
+
+参数 | 可选 | 默认值 | 描述     |
+---- | :--: | :----: | ------   |
+q    |      |        | 关键词   |
+page |  ✓   |  1     | 页码     |
+size |  ✓   |  10    | 每页数量 |
+
 
 # Donate Module
 
